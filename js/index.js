@@ -1,5 +1,5 @@
 import { getData } from "./getData.js";
-import { postDataWithToken } from "./postData.js";
+import { postDataWithToken, postData } from "./postData.js";
 
 function addBackArrow(container, callback) {
   document
