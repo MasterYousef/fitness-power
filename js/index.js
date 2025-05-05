@@ -1,5 +1,6 @@
 import { getData } from "./getData.js";
 import { postDataWithToken, postData } from "./postData.js";
+import url from "./url.js";
 
 function addBackArrow(container, callback) {
   document
@@ -162,7 +163,10 @@ async function handleLogin(event) {
     const response = await postData("/auth/login", { email, password });
     loading.style.display = "none";
     if (response.status === "success") {
+      console.log(response.data);
+
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userRole", response.data.User.role); // Store user role
       alert("Login successful!");
       window.location.reload();
     } else {
